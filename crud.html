@@ -1,0 +1,2182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+<link rel="stylesheet" href="css/style.css">
+
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+
+.cltd{
+  text-align: left;
+  padding: 0px;
+  width:12.500000000000000%;
+  height: 30px;
+  text-align: center;
+  font-size: 10px;
+  border: 1px dashed rgba(28,110,164,0.67);
+}
+
+#idmenulateral{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 40%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.9;
+}
+#idbtmenulateral{
+  position: absolute;
+  top: 0%;
+  left: 90%;
+  width:90px;
+  height: 33px;
+  background-color: rgb(0, 0, 0);
+ 
+color: #ffffff;
+}
+
+
+
+.myButtonmenulat {
+  -moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+  -webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+  box-shadow:inset 0px -3px 7px 0px #29bbff;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+  background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+  background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+  background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+  background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+  background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+  background-color:#2dabf9;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border-radius:3px;
+  border:1px solid #0b0e07;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:15px;
+  padding:9px 23px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #263666;
+}
+.myButtonmenulat:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+  background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+  background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+  background:-o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+  background:-ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+  background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+  background-color:#0688fa;
+}
+.myButtonmenulat:active {
+  position:relative;
+  top:1px;
+}
+
+
+
+
+
+#idbtliderl{
+
+  position: absolute;
+  top: 3%;
+  left: 5%;
+  width: 90%;
+}
+
+
+#idbtdireccion{
+  position: absolute;
+  top: 11%;
+  left: 5%;
+  width: 90%;
+}
+
+#idbtdireccion{
+  position: absolute;
+  top: 11%;
+  left: 5%;
+  width: 90%;
+}
+
+
+#idbtTelefono{
+  position: absolute;
+  top: 19%;
+  left: 5%;
+  width: 90%;
+}
+
+
+#idbcedula{
+  position: absolute;
+  top: 27%;
+  left: 5%;
+  width: 90%;
+}
+
+
+#idbmesa{
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  width: 90%;
+}
+
+
+#idbnombr{
+  position: absolute;
+  top: 43%;
+  left: 5%;
+  width: 90%;
+
+}
+
+
+
+
+#idbtelelider{
+  position: absolute;
+  top: 51%;
+  left: 5%;
+  width: 90%;
+
+}
+#idbpuest{
+  position: absolute;
+  top: 59%;
+  left: 5%;
+  width: 90%;
+
+}
+#idh2{
+
+  font-family: "Playfair Display SC", serif;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 35px;
+    color: rgb(0, 180, 230);
+    background-color: rgb(84, 84, 84);
+    text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display+SC');
+
+
+
+
+#idcrud1{
+
+position: absolute;
+top: 0%;
+left: 0%;
+width: 25%;
+height: 100%;
+background-color: #0b0e07;
+opacity: 0.9;
+overflow-y: scroll;
+}
+
+
+#idcrud2{
+
+position: absolute;
+top: 0%;
+left: 25%;
+width: 25%;
+height: 100%;
+background-color: #0b0e07;
+opacity: 0.9;
+overflow-y: scroll;
+}
+
+#idpaneleditarp{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #0b0e07;
+  opacity: 0.9;
+z-index: 210;
+}
+
+#idbtcerraraneleditor{
+
+position: absolute;
+top: 3%;
+left: 90%;
+width: 70px;
+height: 40px;
+
+
+}
+
+#idbtactaulizaraneleditor{
+
+  position: absolute;
+  top: 8%;
+  left: 90%;
+  width: 70px;
+  height: 40px;
+  
+  
+  }
+
+
+
+
+#idbtopenaneleditor{
+
+
+
+position: absolute;
+top: 7%;
+left: 90%;
+width:90px;
+height: 33px;
+background-color: rgb(0, 0, 0);
+
+color: #ffffff;
+
+
+
+
+
+}
+
+#idmodalmenueditar{
+
+
+  position: absolute;
+  top:0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #0b0e07;
+  z-index: 32;
+}
+
+.myButtonbtedit {
+	-moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+.myButtonbtedit:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+	background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+	background-color:#0688fa;
+}
+.myButtonbtedit:active {
+	position:relative;
+	top:1px;
+}
+
+#idbtedisi
+
+{
+  position: absolute;
+  top:60%;
+  left: 30%;
+
+
+
+
+
+}
+#idmenueditarp{
+  position: absolute;
+  top:3%;
+  left: 30%;
+  color: #2dabf9;
+  font-size: 20px;
+  text-align: center;
+
+  
+}
+
+#idbtcerrarsi{
+  position: absolute;
+  top:60%;
+  left: 60%;
+
+
+  
+}
+
+
+#idbteliminar{
+  position: absolute;
+  top:60%;
+  left: 45%;
+
+}
+
+
+#idnotas{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+z-index:  70;
+}
+
+
+
+
+#myInputnotas {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTablenotas {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+
+  overflow: scroll;
+}
+
+#myTablenotas th, #myTablenotas td {
+
+}
+
+#myTablenotas tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTablenotas tr.header, #myTablenotas tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+#traenotas{
+
+  position: absolute;
+  top:30%;
+  left: 30%;
+
+
+
+}
+
+
+
+#idftraenotascer{
+
+  -moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100));
+	background:-moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100',GradientType=0);
+	background-color:#fe1a00;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+
+
+width: 100px;
+text-align: center;
+padding: 1px;
+margin: auto;
+font-size: 15px;
+position: absolute;
+top: 1%;
+left: 80%;
+
+
+
+
+
+}
+
+
+#ftraenosubenota{
+
+
+  -moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100));
+	background:-moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100',GradientType=0);
+	background-color:#fe1a00;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+
+
+width: 100px;
+text-align: center;
+padding: 1px;
+margin: auto;
+font-size: 15px;
+position: absolute;
+top: 20%;
+left: 80%;
+
+}
+
+#idmenusubirnota{
+
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  width: 38%;
+  height: 30%;
+  z-index: 2;
+  background-color: #0b0e07;
+  opacity: 0.9;
+
+}
+
+#ediftraenosubenota{
+
+
+
+
+  -moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100));
+	background:-moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100',GradientType=0);
+	background-color:#fe1a00;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+
+
+width: 70%;
+text-align: center;
+padding: 1px;
+margin: auto;
+font-size: 15px;
+position: absolute;
+top: 20%;
+left: 1%;
+
+
+
+
+
+}
+
+
+#idmenotaxactulizanotaset{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.9;
+  z-index: 80;
+
+}
+
+#ediftraenosubenotaset{
+
+  -moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+
+
+width: 70%;
+text-align: center;
+padding: 1px;
+margin: auto;
+font-size: 15px;
+position: absolute;
+top: 20%;
+left: 1%;
+
+
+
+}
+
+
+#ftraenosubenotaset{
+
+  -moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+
+
+width: 100px;
+text-align: center;
+padding: 1px;
+margin: auto;
+font-size: 15px;
+position: absolute;
+top: 20%;
+left: 80%;
+
+
+
+
+}
+
+
+
+
+#ftraenosubenotasetce{
+
+  -moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100));
+	background:-moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100',GradientType=0);
+	background-color:#fe1a00;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+
+
+  width: 100px;
+text-align: center;
+padding: 1px;
+margin: auto;
+font-size: 15px;
+position: absolute;
+top: 10%;
+left: 80%;
+
+
+}
+
+
+
+
+
+
+#idpanelpuedoabrircrud{
+
+position: absolute;
+top: 0%;
+left: 0%;
+background-color: #0688fa;
+width: 100%;
+height: 100%;
+z-index: 43;
+
+
+
+-moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+box-shadow:inset 0px -3px 7px 0px #29bbff;
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+background-color:#2dabf9;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+border-radius:3px;
+border:1px solid #0b0e07;
+display:inline-block;
+cursor:pointer;
+color:#ffffff;
+font-family:Arial;
+font-size:15px;
+padding:9px 23px;
+text-decoration:none;
+text-shadow:0px 1px 0px #263666;
+
+
+
+
+
+
+
+}
+
+
+
+#idinputpuedoabririnombre{
+
+position: absolute;
+top: 40%;
+left: 45%;
+
+}
+
+
+
+#idinputpuedoabriripass{
+
+position: absolute;
+top: 50%;
+left: 45%;
+
+}
+
+#idinputpuedoabririBTok{
+
+position: absolute;
+top: 69%;
+left: 54%;
+width: 10%;
+
+}
+
+
+#idlabepnombre{
+position: absolute;
+top: 40%;
+left: 40%;
+
+}
+
+#idlabeppass{
+
+position: absolute;
+top: 50%;
+left: 40%;
+}
+
+
+
+.clputpuedoabririnombre{
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+	background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+	background-color:#ffffff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.clputpuedoabririnombre:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+	background:-moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+	background-color:#f6f6f6;
+}
+.clputpuedoabririnombre:active {
+	position:relative;
+	top:1px;
+}
+
+
+</style><script src="jquery-3.3.1.min.js"></script>
+</head>
+
+
+
+
+
+<body>
+    <dic id="idpanelpuedoabrircrud"> <p id="idpabrirpanelcrud"> CRUD USER</p>
+      <label id="idlabepnombre" for="male">User:</label><input class="clputpuedoabririnombre" id="idinputpuedoabririnombre" type="text"  value="" placeholder="user">
+      <label id="idlabeppass" for="male">Pass:</label><input class="clputpuedoabririnombre" id="idinputpuedoabriripass" type="password"  value="" placeholder="pass">
+      <button class="clputpuedoabririnombre" id="idinputpuedoabririBTatras"  onclick="fabrircrudatrasl();" >Atras</button>
+      <button class="clputpuedoabririnombre" id="idinputpuedoabririBTok"  onclick="tousekey();">Ok</button>
+    </dic>
+
+  <div id="idmenotaxactulizanotaset">
+      <input type="text" id="ediftraenosubenotaset" value="" placeholder="Editar nota">
+
+      <button  onclick="actulizalanotaxfi();" id="ftraenosubenotaset" class="myButtonbteditset">editar nota</button>
+      <button  onclick="ftraenosubenotasetce();" id="ftraenosubenotasetce" class="myButtonbteditset">Cancelar</button>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <div id="idnotas">
+  
+  
+  
+  <div id="idmenusubirnota">
+      <input type="text" id="ediftraenosubenota" value="" placeholder="nueva nota">
+      <button  onclick="ftraenosubenota();" id="ftraenosubenota" class="myButtonbtedit">Sube notas</button>
+
+  </div>
+  
+  
+  
+  <button  onclick="ftraenotascer();" id="idftraenotascer" class="myButtonbtedit">Cerrar</button>
+ 
+
+  <h2 id="idh2">Mitabla</h2>
+
+  <input type="text" id="myInputnotas" onkeyup="myFunction()" placeholder="Buscar " title="Type in a name">
+  <table id="myTablenotas">
+    <tr class="header">
+        <th style="width:20%;">Quien Escribio</th>
+        <th style="width:70%;">Nota</th>
+        <th style="width:10%;">Fecha</th>
+  
+  
+  
+    </tr>
+  
+  
+  
+  
+    
+  </table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div id="idmodalmenueditar">
+<p id="idmenueditarp">giovanni rodirguez</p>
+
+
+<button  onclick="ftraenotas();" id="traenotas" class="myButtonbtedit">Notas</button>
+
+<button  onclick="fidbtedisi();" id="idbtedisi" class="myButtonbtedit">Editar</button>
+
+<button  onclick="fidbteliminar();" id="idbteliminar" class="myButtonbtedit">Eliminar</button>
+
+<button  onclick="fidbtcerrarsi();" id="idbtcerrarsi" class="myButtonbtedit">cerrar</button>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+    <div id="idpaneleditarp">
+   
+
+
+
+
+        
+
+
+
+        <button id="idbtactaulizaraneleditor"  onclick="traecrud();">actualizar datos</button>
+        
+        
+            <button id="idbtcerraraneleditor"  onclick="fidbtcerraraneleditor();">Cerrar</button>
+        
+        
+            <div id="idcrud1">
+        
+        
+        
+              
+        
+        
+        
+         
+              <div class="text-input">
+              <input type="text" id="input1" placeholder="Nombre completo">
+              <label for="input1">Nombre</label>
+            
+            
+             
+            <div class="text-input">
+              <input type="text" id="input2" placeholder="Cedula">
+              <label for="input1">Cedula</label>
+            </div>
+            
+            
+            <div class="text-input">
+              <input type="text" id="input3" placeholder="Departamento">
+              <label for="input1">Departamento</label>
+            </div>
+            
+            <div class="text-input">
+              <input type="text" id="input4" placeholder="Municipio">
+              <label for="input1">Municipio</label>
+            </div>
+            
+            
+            <div class="text-input">
+              <input type="text" id="input5" placeholder="Puesto">
+              <label for="input1">Puesto</label>
+            </div>
+            
+            <div class="text-input">
+              <input type="text" id="input6" placeholder="Direccion">
+              <label for="input1">Direccion</label>
+            </div>
+            
+            <div class="text-input">
+              <input type="text" id="input7" placeholder="Mesa">
+              <label for="input1">Mesa</label>
+            </div>
+ 
+            
+            </div>
+            
+            </div>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <div id="idcrud2">
+          
+          
+          
+          
+          
+          
+          
+           
+              <div class="text-input">
+              <input type="text" id="input8" placeholder="Celular">
+              <label for="input1">Celular</label>
+            
+            
+             
+            <div class="text-input">
+              <input type="text" id="input9" placeholder="Email">
+              <label for="input1">Email</label>
+            </div>
+            
+            
+            <div class="text-input">
+              <input type="text" id="input10" placeholder="Facebook">
+              <label for="input1">Facebook</label>
+            </div>
+            
+            <div class="text-input">
+              <input type="text" id="input11" placeholder="Lat">
+              <label for="input1">Lat</label>
+            </div>
+            
+            
+            <div class="text-input">
+              <input type="text" id="input12" placeholder="Lng">
+              <label for="input1">Lng</label>
+            </div>
+            
+            <div class="text-input">
+              <input type="text" id="input13" placeholder="Referido">
+              <label for="input1">Referido</label>
+            </div>
+            
+            <div class="text-input">
+              <input type="text" id="input14" placeholder="Nota de usuario">
+              <label for="input1">Nota de usuario</label>
+            </div>
+            
+            <div class="text-input">
+              <input type="text" id="input15" placeholder="Notal Lider">
+              <label for="input1">Notal Lider</label>
+            </div>
+            
+            <div class="text-input">
+                <input type="text" id="input16" placeholder="Fecha">
+                <label for="input1">Fecha</label>
+              </div>
+
+
+
+
+            </div>
+            
+            </div>
+          
+          
+        
+        
+        
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    <button id="idbtopenaneleditor"  onclick="fidbtopenraneleditor();">Editar</button>
+   
+
+
+  <button id="idbtmenulateral"  onclick="fmenulate();">Menu</button>
+  <button id="idbtatras"  onclick="fidbtatras();">Atras</button>
+  
+  <div id="idmenulateral">
+
+      <button id="idbtliderl"   class="myButtonmenulat"  onclick="fbtlider();">Lider</button>
+
+      <button id="idbtdireccion"   class="myButtonmenulat"  onclick="fidbtdireccion();">Direccion</button>
+      <button id="idbtTelefono"   class="myButtonmenulat"  onclick="fidbtTelefono();">Telefono votante</button>
+
+
+      <button id="idbcedula"   class="myButtonmenulat"  onclick="fidbcedula();">Cedula</button>
+
+      <button id="idbmesa"   class="myButtonmenulat"  onclick="fidbmesa();">Mesa</button>
+
+
+      <button id="idbnombr"   class="myButtonmenulat"  onclick="fidbnombr();">Nombre</button>
+
+
+      
+      <button id="idbtelelider"   class="myButtonmenulat"  onclick="fidbtelelider();">Telefono del Lider</button>
+      
+
+      <button id="idbpuest"   class="myButtonmenulat"  onclick="fidbpuest();">Puesto</button>
+
+
+  </div>
+
+<h2 id="idh2">Ordena Todo por Lider</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar " title="Type in a name">
+
+<table id="myTable">
+  <tr class="header">
+      <th style="width:12.500000000000000%;">Nombre</th>
+      <th style="width:12.500000000000000%;">Cedula</th>
+      <th style="width:12.500000000000000%;">Telefono</th>
+      <th style="width:12.500000000000000%;">Puesto</th>
+      <th style="width:12.500000000000000%;">Direccion</th>
+      <th style="width:12.500000000000000%;">Mesa</th>
+      <th style="width:12.500000000000000%;">Lider</th>
+      <th style="width:12.500000000000000%;">Telefono Lider</th>
+
+
+  </tr>
+
+
+
+
+  
+</table>
+<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  // Initialize Firebase
+  // Initialize Firebase
+  var firebaseConfig = {
+  apiKey: "AIzaSyC7r3TLuQDQnHKXxyh08dffU3IW5_oDK5o",
+  authDomain: "ginaherrera-49946.firebaseapp.com",
+  databaseURL: "https://ginaherrera-49946.firebaseio.com",
+  projectId: "ginaherrera-49946",
+  storageBucket: "",
+  messagingSenderId: "512017761936",
+  appId: "1:512017761936:web:cc03430ff0c7228a"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+function escribeh2(st){
+
+  document.getElementById("idh2").innerHTML=st;
+}
+
+
+function fbtlider(){
+posicionid=6;
+escribeh2("Buscando por Lider");
+}
+
+function fidbtdireccion(){
+
+posicionid=4;
+escribeh2("Buscando por Direccion");
+}
+
+function fidbtTelefono(){
+
+posicionid=2;
+escribeh2("Buscando por Telefono del Votante");
+}
+
+function fidbcedula(){
+
+posicionid=1;
+
+escribeh2("Buscando por Cedula");
+}
+
+function fidbmesa(){
+
+posicionid=5;
+escribeh2("Buscando por Mesa");
+}
+function fidbnombr(){
+  escribeh2("Buscando por Nombre del Votante");
+posicionid=0;
+}
+
+function fidbtelelider(){
+  escribeh2("Buscando por Telefono del Lider");
+posicionid=7;
+}
+
+
+function fidbpuest(){
+  escribeh2("Buscando por Puesto");
+posicionid=3;
+}
+
+var todovotantest={ant:0,des:0,ahora:0};
+var  arraypuestooder=[];
+var arraytodoordenode=[];
+  /*firebase.database().ref("votantes").orderByChild("puesto").on("child_added", function(snapshot) {
+  console.log(snapshot.val());
+  });*/
+var idxllamtodotodo=0;
+var vllegueunsaves=0;
+function traetodoordenadopor(st1){
+  firebase.database().ref("votantes").orderByChild(String(st1)).on("child_added", function(snapshot) {
+ // console.log(snapshot.val());
+  //todovotantest=snapshot.val();
+  arraytodoordenode.push({obj:snapshot.val(),key:snapshot.key});
+  console.log( arraytodoordenode[arraytodoordenode.length-1]);
+ // elforordenatodopornodo();
+// creatd();
+todovotantest.ant=todovotantest.ahora;
+todovotantest.ahora=todovotantest.ahora+1;
+todovotantest.des=todovotantest.ahora;
+
+
+
+
+
+
+  });
+
+
+}
+setInterval(function(){ 
+
+if(arraytodoordenode.length==todovotantest.des){
+  setTimeout(function(){
+    todovotantest.des=0;
+    elforordenatodopornodo();
+    creatd();
+  },2000)
+  }
+
+ }, 3000);
+
+function elforordenatodopornodo(){
+
+for(var i in arraytodoordenode){
+    
+
+  arraypuestooder.push({cedula:arraytodoordenode[i].obj.cedula,departamento:arraytodoordenode[i].departamento,
+    direccion:arraytodoordenode[i].obj.direccion,
+email:arraytodoordenode[i].obj.email,
+facebook:arraytodoordenode[i].obj.facebook,
+fecha:arraytodoordenode[i].obj.fecha,
+idreferido:arraytodoordenode[i].obj.idreferido,
+mesa:arraytodoordenode[i].obj.mesa,
+movil:arraytodoordenode[i].obj.movil,
+municipio:arraytodoordenode[i].obj.municipio ,
+notareferido:arraytodoordenode[i].obj.notareferido,
+nombres:arraytodoordenode[i].obj.nombre ,
+notauser:arraytodoordenode[i].obj.notauser,
+referido:arraytodoordenode[i].obj.referido,
+puesto:arraytodoordenode[i].obj.puesto,idmio:arraytodoordenode[i].key
+ 
+  
+  });
+
+    
+
+  }
+}
+
+
+
+
+
+
+
+var todovotantes;
+var vordenarpuesto="eeee";
+var vertraetodo=0;
+
+
+
+
+
+
+
+
+
+
+
+function elforfirepuesto(){
+  for(var i in todovotantes){
+
+    
+      if(todovotantes[i].puesto==vordenarpuesto){
+  
+
+        arraypuestooder.push({cedula:todovotantes[i].cedula,departamento:todovotantes[i].departamento,
+          direccion:todovotantes[i].direccion,
+    email:todovotantes[i].email,
+    facebook:todovotantes[i].facebook,
+    fecha:todovotantes[i].fecha,
+    idreferido:todovotantes[i].idreferido,
+    mesa:todovotantes[i].mesa,
+    movil:todovotantes[i].movil,
+    municipio:todovotantes[i].municipio ,
+    notareferido:todovotantes[i].notareferido,
+    nombres:todovotantes[i].nombre ,
+    notauser:todovotantes[i].notauser,
+    referido:todovotantes[i].referido,
+    puesto:todovotantes[i].puesto,idmio:i
+   
+    
+    });
+ 
+      }
+
+    }
+}
+var sttraetodoordevotantepor="";
+function traerdef(stnode){ 
+  firebase.database().ref().child(String(stnode)).once("value", function(snapshot) { 
+    //console.log(snapshot.key + " was " + snapshot.val()+ " meters tall");
+todovotantes=snapshot.val();
+creatd();
+
+  
+  });
+
+}
+
+vertraetodo=0;
+iniciauno();
+function iniciauno(){
+  if(vertraetodo==1){vordenarpuesto="";traerdef("votantes");  elforfirepuesto();}
+  if(vertraetodo==0){ sttraetodoordevotantepor="referido";traetodoordenadopor(sttraetodoordevotantepor);}
+  
+   
+}
+
+
+
+/*
+var st={  
+  cedula:todovotantes[i].cedula,departamento:todovotantes[i].departamento,direccion:todovotantes[i].direccion,email:todovotantes[i].email,facebook:todovotantes[i].facebook,
+​fechainsc:todovotantes[i].fechainsc,idreferido:todovotantes[i].idreferido,mesa:todovotantes[i].mesa,movil:todovotantes[i].movil,municipio:todovotantes[i].municipio,
+​nombre:todovotantes[i].nombre,notareferido:todovotantes[i].notareferido,notauser:todovotantes[i].notauser,puesto:todovotantes[i].puesto,​referido:todovotantes[i].referido
+ }
+
+*/
+var idxs=0;
+
+  varstestructuratd="<tr ><td id="+String(idx)+" class='cltd'>Nombre:<br>"+String("Giovanni ernesto rodigues diaz") +"</td><td class='cltd'>Cedula:<br>"+String(111111111111)+"</td>"+
+    " <td class='cltd'>Telefono:<br>"+String(3134567898)+"</td>"+
+   "  <td class='cltd'>Puesto:<br>"+String("casdfrewsdfgvddsdsdsdd")+"</td>"+
+     "<td class='cltd'>Direccion:<br>"+String("cal le 34 No 43 b - 12")+"</td>"+
+    " <td class='cltd'>Mesa:<br>"+String(32)+"</td>"+
+    " <td class='cltd'>Referido:<br>"+String("Giovanni ernesto rodigues diaz")+"</td>"+
+    " <td class='cltd'>"+String("Telefono Lider")+"<br>3123456789</td></tr>";
+
+
+
+
+
+
+
+var posicionid=0;
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[posicionid];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var idx=0;
+
+
+function creatd(){
+
+  if(vllegueunsaves>0){
+location.reload();
+alert(vllegueunsaves);
+  }
+vllegueunsaves=vllegueunsaves+1;
+
+
+  var stestructuratd="";
+
+
+  for(var i  in arraypuestooder){
+
+    stestructuratd="<tr ><td onclick="+'edit(this);'+"    id="+String(arraypuestooder[i].idmio) +" class='cltd'>Nombre:<br>"+String(arraypuestooder[i].nombres)+" : "+String(idx)+ +"</td>"+
+"<td class='cltd'>Cedula:<br>"+String(arraypuestooder[i].cedula)+"</td>"+
+  " <td class='cltd'>Telefono:<br>"+String(arraypuestooder[i].movil)+"</td>"+
+ "  <td class='cltd'>Puesto:<br>"+String(arraypuestooder[i].puesto)+"</td>"+
+   "<td class='cltd'>Direccion:<br>"+String(arraypuestooder[i].direccion)+"</td>"+
+  " <td class='cltd'>Mesa:<br>"+String(arraypuestooder[i].mesa)+"</td>"+
+  " <td class='cltd'>Lider:<br>"+String(arraypuestooder[i].referido)+"</td>"+
+  " <td class='cltd'>"+String("Telefono Lider")+"<br>"+String(arraypuestooder[i].movil)+"</td></tr>";
+
+
+console.log(arraypuestooder[i].puesto);
+
+idx=idx+1;
+$("#myTable").append(stestructuratd);
+
+$('#'+String(idx)).click(function(){
+//alert($(this).attr('id'));
+  })
+
+
+}/*
+
+	for(var i=0;i<4;i=i+1){
+
+//megusta:general[itera].likes
+
+
+stestructuratd="<tr ><td onclick="+'yocelda(this);'+"id="+String(idx)+" class='cltd'>Nombre:<br>"+String("Giovanni ernesto rodigues diaz")+" : "+String(idx)+ +"</td>"+
+"<td class='cltd'>Cedula:<br>"+String(111111111111)+"</td>"+
+  " <td class='cltd'>Telefono:<br>"+String(3134567898)+"</td>"+
+ "  <td class='cltd'>Puesto:<br>"+String("casdfrewsdfgvddsdsdsdd")+"</td>"+
+   "<td class='cltd'>Direccion:<br>"+String("cal le 34 No 43 b - 12")+"</td>"+
+  " <td class='cltd'>Mesa:<br>"+String(32)+"</td>"+
+  " <td class='cltd'>Referido:<br>"+String("Giovanni ernesto rodigues diaz")+"</td>"+
+  " <td class='cltd'>"+String("Telefono Lider")+"<br>"+String(3123456789)+"</td></tr>";
+
+//general[itera].likes
+
+idx=idx+1;
+$("#myTable").append(stestructuratd);
+
+
+
+
+
+
+
+}
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+}
+
+var bollactivaredicion=false;
+var idxbollactivaredicion=1;
+var idvotantecrud="";
+function edit(yo){
+
+  if(bollactivaredicion){ idvotantecrud=yo.id ; 
+
+  if(idvotantecrud==""){
+    document.getElementById("idmenueditarp").innerHTML=  yo.innerHTML+" sin id  "+idvotantecrud;
+
+  }
+
+  else{document.getElementById("idmodalmenueditar").style.display="block";
+ // document.getElementById("idmenueditarp").innerHTML=  yo.innerHTML+""+idvotantecrud;
+ document.getElementById("idmenueditarp").innerHTML= "Menu CRUD";
+  }
+  }
+else{
+  document.getElementById("idmodalmenueditar").style.display="none";
+}
+ 
+
+
+  
+
+
+
+}
+
+
+
+function elimarvotante(st){
+
+  firebase.database().ref("votantes").child(String(st)).remove();
+}
+
+
+
+
+
+
+var idxmenulateraloculta=1;
+document.getElementById("idmenulateral").style.display="none";
+function fmenulate(){
+if(idxmenulateraloculta==1){
+  document.getElementById("idmenulateral").style.display="block"
+  document.getElementById("idmenulateral").style.width=String(window.innerWidth*0.4)+"px";}
+ else{ document.getElementById("idmenulateral").style.display="none";}idxmenulateraloculta=1+idxmenulateraloculta;
+if(idxmenulateraloculta>1){idxmenulateraloculta=0;}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function fidbtatras(){
+
+  window.location="index2.html";
+}
+
+
+
+function fidbtcerraraneleditor(){
+
+//document.getElementById("idpaneleditarp").style.display="none";
+
+document.getElementById("idpaneleditarp").style.display="none";
+
+}
+
+
+var idbooleditarpanel=0;
+function fidbtopenraneleditor(){
+  if(idxbollactivaredicion==1){
+
+bollactivaredicion=true;
+
+document.getElementById("idbtopenaneleditor").style.backgroundColor="#2dabf9";
+
+}else{ bollactivaredicion=false;
+  document.getElementById("idbtopenaneleditor").style.backgroundColor="#000000";
+  bollactivaredicion=false;
+}
+
+if(idxbollactivaredicion>1){idxbollactivaredicion=0;}
+
+idxbollactivaredicion=idxbollactivaredicion+1;
+
+//document.getElementById("idpaneleditarp").style.display="block";
+}
+
+
+document.getElementById("idpaneleditarp").style.display="none";
+
+function fidbtcerrarsi(){
+  document.getElementById("idmodalmenueditar").style.display="none";
+
+}
+
+function fidbteliminar(){
+  if(idvotantecrud==""){}
+  else{elimarvotante(idvotantecrud);
+    alert("deletee");
+  window.location.reload();
+
+    firebase.database().ref("votantes").on("child_removed", function(snapshot) {
+  var deletedPost = snapshot.val();
+  console.log("The blog post titled '" + deletedPost.title + "' has been deleted");
+
+if(idvotantecrud==deletedPost){
+alert("deletee");
+}
+else{
+  alert("no deletee");
+}
+
+alert("deletee");
+
+});
+  
+  }
+  
+
+}
+document.getElementById("idmodalmenueditar").style.display="none";
+
+function fidbtedisi(){
+  //alert(idvotantecrud);
+ 
+  document.getElementById("idpaneleditarp").style.display="block";
+  document.getElementById("idmodalmenueditar").style.display="none";
+
+
+  mia();
+
+}
+
+var arrcrudvotant;
+function traecrud2(){
+/*
+  firebase.database().ref("votantes").child(String(idvotantecrud).once("value", function(snapshot) {
+    arrcrudvotant = snapshot.val();
+    document.getElementById("idpaneleditarp").style.display="block";
+    escribeenediedi();
+});*/
+  
+}
+
+function traecrud(){ alert("traecru");
+document.getElementById("idpaneleditarp").style.display="block";
+
+/*
+  if(idvotantecrud!=""){
+  firebase.database().ref("votantes").child(String(idvotantecrud)).on("value", function(snapshot) {
+    arrcrudvotant = snapshot.val();
+    document.getElementById("idpaneleditarp").style.display="block";
+    escribeenediedi();
+    console.log(arrcrudvotant);
+
+}, function (errorObject) {
+
+});}*/
+}
+function mia(){
+
+  if(idvotantecrud!=""){
+  firebase.database().ref("votantes").child(String(idvotantecrud)).on("value", function(snapshot) {
+    arrcrudvotant = snapshot.val();
+    document.getElementById("idpaneleditarp").style.display="block";
+    escribeenediedi();
+    console.log(arrcrudvotant);
+
+
+}, function (errorObject) {
+
+});}
+}
+
+
+
+function setvok(st1){
+
+  document.getElementById(st1).value="";
+}
+
+
+
+
+
+
+
+var ednombre="";
+var edcedula="";
+var eddepartamento="";
+var eddireccion="";
+var edemail="";
+var edfacebook="";
+var edidreferido="";
+var edlat="";
+var edlng="";
+var edmesa="";
+var edmovil="";
+var edmunicipio="";
+var ednotareferido="";
+var ednotauser="";
+var edpuesto="";
+var edreferido="";
+var edfechainsc="";
+
+var  edpersona=[];
+
+function edsubeperso(){
+
+  edpersona.push({
+  cedula: edcedula,
+  departamento: eddepartamento,
+  direccion: eddireccion,
+  email: edemail,
+  facebook: edfacebook,
+  fechainsc:edfechainsc,
+  idreferido:edidreferido,
+  lat: edlat,
+  lng: edlng,
+  mesa: edmesa,
+movil: edmovil,
+  municipio:edmunicipio,
+  nombre: ednombre,
+  notareferido: ednotareferido,
+  notauser: ednotauser,
+  puesto:edpuesto,
+referido: edreferido
+}
+);
+}
+function escribeenediedi(){
+
+
+
+  for(var i in  arrcrudvotant){
+    ednombre= arrcrudvotant.nombre;
+    edcedula=arrcrudvotant.cedula;
+    eddepartamento=arrcrudvotant.departamento;
+    eddireccion=arrcrudvotant.direccion;
+   edemail =arrcrudvotant.email;
+  edfacebook=arrcrudvotant.facebook;
+  edidreferido=arrcrudvotant.idreferido;
+  edlat=arrcrudvotant.lat;
+  edlng=arrcrudvotant.lng;
+  edmesa=arrcrudvotant.mesa;
+  edmovil=arrcrudvotant.movil;
+  edmunicipio=arrcrudvotant.municipio;
+  ednotareferido=arrcrudvotant.notareferido;
+  ednotauser=arrcrudvotant.notauser;
+  edpuesto=arrcrudvotant.puesto;
+  edreferido=arrcrudvotant.referido;
+  edfechainsc=arrcrudvotant.fechainsc;
+
+  // console.log(" nm " +ednombre);
+  }
+  setv("input1",ednombre);
+  setv("input2",edcedula);
+  setv("input3",eddepartamento);
+  setv("input6",eddireccion);
+  setv("input9",edemail);
+  setv("input6",edidreferido);
+  setv("input11",edlat);
+  setv("input12",edlng);
+  setv("input7",edmesa);
+  setv("input8",edmovil);
+  setv("input4",edmunicipio);
+  setv("input15",ednotareferido);
+  setv("input14",ednotauser);
+ 
+  setv("input13",edreferido);
+  setv("input16",edfechainsc);
+  setv("input5",edpuesto);
+
+  setv("input10",edfacebook);
+  
+}
+
+function setv(st1,st2){
+
+  document.getElementById(st1).value=st2;
+}
+
+function getved(st1,st2){
+
+return document.getElementById(st1).value;
+}
+
+
+function gettodoedi(){
+  ednombre= getved("input1",ednombre);
+  edcedula= getved("input2",edcedula);
+  eddepartamento= getved("input3",eddepartamento);
+  eddireccion= getved("input6",eddireccion);
+  edemail=getved("input9",edemail);
+  edidreferido=getved("input6",edidreferido);
+  edlat= getved("input11",edlat);
+  edlng=getved("input12",edlng);
+  edmesa=getved("input7",edmesa);
+  edmovil=getved("input8",edmovil);
+  edmunicipio=getved("input4",edmunicipio);
+  ednotareferido= getved("input15",ednotareferido);
+  //ednotauser=addEventListener("input14",ednotauser);
+ 
+
+  ednotauser=getved("input14",ednotauser);
+  edreferido=getved("input13",edreferido);
+  edfechainsc=getved("input16",edfechainsc);
+  edpuesto= getved("input5",edpuesto);
+
+  edfacebook=getved("input10",edfacebook);
+}
+
+
+
+function traecrud(){
+  gettodoedi();
+  
+ // edsubeperso();
+
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("cedula").set(edcedula);  
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("departamento").set(eddepartamento); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("direccion").set(eddireccion); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("email").set(edemail); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("facebook").set(edfacebook); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("fechainsc").set(edfechainsc); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("idreferido").set(edidreferido); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("lat").set(edlat); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("lng").set(edlng); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("mesa").set(edmesa); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("movil").set(edmovil); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("municipio").set(edmunicipio); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("nombre").set(ednombre); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("notareferido").set( ednotareferido); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("notauser").set( ednotauser); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("puesto").set(edpuesto); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("referido").set( edreferido); 
+ //firebase.database().ref("votantes").child(String(idvotantecrud)).set(edpersona);  
+ //console.log(edpersona); 
+}
+
+
+
+
+
+
+
+
+
+
+// todo d e notas
+
+
+
+
+
+
+var nuevanota="";
+function subenotas(){traefechaspc();
+
+nuevanota=document.getElementById("ediftraenosubenota").value;
+
+
+  firebase.database().ref("votantes").child(String(idvotantecrud)).child("notasx").push({keyuser:String(vkeyuser),quienescri:String(nombreusermodificador),nota:String(nuevanota),lafecha:String(today)+"  "+String(time)});
+
+
+
+  window.location.reload();
+
+}
+
+
+var arrcrudvotantnotas=[];
+
+function ftraenotas(){
+
+if(idvotantecrud!=""){
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("notasx").once("value", function(snapshot) {
+  arrcrudvotantnotas = snapshot.val();
+  //ftraenotasope();
+ // escribeenediedi();
+ ftraenotasope();
+ creatnotas();
+ 
+  
+
+}, function (errorObject) {
+
+});}
+}
+
+ftraenotascer();
+function ftraenotascer(){
+  document.getElementById("idnotas").style.display="none";
+
+  
+}
+function ftraenotasope(){
+  document.getElementById("idnotas").style.display="block";
+
+  
+}
+
+
+function ftraenosubenota(){
+  subenotas();
+
+}
+var now;
+  var today ;
+  var time;
+  var hours;
+  var minutes;
+  var seconds;
+  var milliseconds;
+  var newSeconds;
+
+function traefechaspc(){
+  now = new Date();
+  today = now.toDateString();
+ time = now.toLocaleTimeString();
+ hours = now.getHours();
+ minutes = now.getMinutes();
+  seconds = now.getSeconds();
+  milliseconds = now.getMilliseconds();
+ newSeconds = seconds+ (milliseconds/1000);
+}
+
+
+
+
+function ordenanotas() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[posicionid];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+var idxn=0;
+var stestructuratdnota="";
+function creatnotas(){
+
+var stestructuratd="";
+
+ idxn=0;
+
+
+
+
+
+
+
+for(var i  in arrcrudvotantnotas){
+
+  stestructuratdnota="<tr ><td onclick="+'editnotax(this);'+"    id="+String(i) +" class='cltd'>Nombre:<br>"+String(arrcrudvotantnotas[i].quienescri)+" : "+String(idxn)+ +"</td>"+
+"<td class='cltd'>Nota:<br>"+String(arrcrudvotantnotas[i].nota)+"</td>"+
+" <td class='cltd'>Fecha:<br>"+String(arrcrudvotantnotas[i].lafecha)+"</td>"
+
+;
+
+
+
+
+idxn=idxn+1;
+$("#myTablenotas").append(stestructuratdnota);
+
+$('#'+String(idxn)).click(function(){
+//alert($(this).attr('id'));
+})
+
+
+}
+
+
+
+
+
+
+}
+
+
+var guardoidnotasx="";
+var  notaaset="";
+function editnotax(thisyo){
+ alert(thisyo.id);
+ guardoidnotasx=thisyo.id;
+ ftraenosubenotasetop();
+}
+
+
+ftraenosubenotasetce();
+function ftraenosubenotasetce(){
+
+  document.getElementById("idmenotaxactulizanotaset").style.display="none";
+}
+function ftraenosubenotasetop(){
+
+document.getElementById("idmenotaxactulizanotaset").style.display="block";
+}
+function actulizalanotaxfi(){
+  notaaset=document.getElementById("ediftraenosubenotaset").value;
+
+ /*firebase.database().ref("votantes").child(String("-LZkidIOsGIiWfhHsepQ")).child("notasx").
+ child(String("n1")).child("nota").set(String(notaaset));*/
+
+ firebase.database().ref("votantes").child(String(idvotantecrud)).child("notasx").child(String(guardoidnotasx)).child("nota").set(String(notaaset));
+
+window.location.reload();
+}
+
+
+
+
+function traeuser(){}
+
+var userf=[];
+
+
+function ftrusersi(){
+
+userf=[];
+firebase.database().ref().child(String("user")).once("value", function(snapshot) {
+  userf= snapshot.val();
+
+
+
+}, function (errorObject) {
+
+});
+}
+var soyadmiminuser=false;
+var elusermodifica="";
+var elclavemodifica="";
+var vkeyuser="";
+var  nombreusermodificador="";
+function tousekey(){
+
+alert("giovanni");
+
+elusermodifica=document.getElementById("idinputpuedoabririnombre").value;
+
+elclavemodifica=document.getElementById("idinputpuedoabriripass").value;
+
+  for(var i in userf){
+
+if(elclavemodifica==userf[i].clave&&userf[i].user==elusermodifica){
+  vkeyuser=i;
+  soyadmiminuser=true;
+  nombreusermodificador=userf[i].nombre;
+}
+
+if(soyadmiminuser){
+  soyadmiminuser=false;
+  fidpanelpuedoabrircrud();
+}
+
+  }
+}
+
+function fidpanelpuedoabrircrud(){
+
+document.getElementById("idpanelpuedoabrircrud").style.display="none";
+}
+function fcidpanelpuedoabrircrud(){
+
+document.getElementById("idpanelpuedoabrircrud").style.display="block";
+}
+
+
+
+
+
+function fabrircrudatrasl(){
+  fidbtatras();
+}
+
+
+
+
+ftrusersi();
+document.getElementById("idpanelpuedoabrircrud").style.display="none";
+</script>
+
+</body>
+</html>

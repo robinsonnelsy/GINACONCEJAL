@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+
+
+<!-- Mirrored from www.chartjs.org/samples/latest/charts/polar-area.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Feb 2019 22:36:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Polar Area Chart</title>
+	<script src="Chart.bundle.js"></script>
+	<script src="utils.js"></script>
+	<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+
+	
+
+		.myButton {
+	-moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+	background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+	background-color:#0688fa;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+
+#idbtatras{
+
+position: absolute;
+top:2%;
+left: 90%;
+
+}
+
+
+#canvas-holder{
+	position: absolute;
+top:15%;
+left: 15%;
+
+
+}
+	</style>
+	
+<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+
+</script>
+</head>
+
+<body>
+	<div id="canvas-holder" style="width:80%">
+		<canvas id="chart-area"></canvas>
+	</div>
+	<button onclick="fatras();"  class="myButton" id="idbtatras">atras</button>
+
+	<script>
+
+var porcemeta="";
+var porcwvotante="";
+var configgrafgraf ;
+  // Initialize Firebase
+  var firebaseConfig = {
+    apiKey: "AIzaSyDhOtf_ssOp3KEOiu3nByOWcqJxXZEzVaA",
+    authDomain: "concejalaginna.firebaseapp.com",
+    databaseURL: "https://concejalaginna.firebaseio.com",
+    projectId: "concejalaginna",
+    storageBucket: "concejalaginna.appspot.com",
+    messagingSenderId: "167282227815",
+    appId: "1:167282227815:web:6efa3b7917aa63bd"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+var  todovotantes;
+var numerodevotantes=0;
+
+var vmeta=0;
+fmeta();
+function fmeta(){
+  firebase.database().ref().child(String("metavotantes")).on("value", function(snapshot) {
+
+    vmeta=snapshot.val();
+
+	fllamavo();
+
+}, function (errorObject) {
+
+});
+}
+
+
+
+var porcemeta=String(vmeta/vmeta*100)+"%";
+var porcwvotante=String(numerodevotantes/vmeta*100)+"%";
+
+
+  function fllamavo(){
+  firebase.database().ref().child(String("votantes")).on("value", function(snapshot) {
+  //  vunallamdaalnodovo=[];
+    todovotantes=snapshot.val();
+for(var i in todovotantes){
+	numerodevotantes=numerodevotantes+1;
+}
+
+
+ porcemeta=String(vmeta/vmeta*100)+"%";
+ porcwvotante=String(numerodevotantes/vmeta*100)+"%";
+
+configgrafgraf= {
+			data: {
+				datasets: [{
+					data: [
+						vmeta,
+			numerodevotantes
+					],
+					backgroundColor: [
+						color(chartColors.blue).alpha(0.5).rgbString(),
+						color(chartColors.orange).alpha(0.5).rgbString()
+					
+					],
+					label: 'My dataset' // for legend
+				}],
+				labels: [
+					'Meta: ' +porcemeta,
+					'Presente:'+porcwvotante
+				
+				]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					position: 'right',
+				},
+				title: {
+					display: true,
+					text: 'Relacion Votantes meta'
+				},
+				scale: {
+					ticks: {
+						beginAtZero: true
+					},
+					reverse: false
+				},
+				animation: {
+					animateRotate: false,
+					animateScale: true
+				}
+			}
+		};
+
+
+	console.log( numerodevotantes);
+//console.log("viene de  fire una llamada alnodo vo ");   
+var ctx = document.getElementById('chart-area');
+			window.myPolarArea = Chart.PolarArea(ctx, configgrafgraf);
+
+}, function (errorObject) {
+ // console.log("The read failed: " + errorObject.code);
+});
+}
+
+function  randomScalingFactor(){
+	return Math.round(Math.random() * 100);
+}
+	
+
+			randomScalingFactor();
+
+		var chartColors = window.chartColors;
+		var color = Chart.helpers.color;
+	
+		window.onload = function() {
+	
+		};
+
+
+		var colorNames = Object.keys(window.chartColors);
+
+	
+
+function fatras(){
+
+	window.location="index2.html";
+}
+	
+	</script>
+</body>
+
+
+<!-- Mirrored from www.chartjs.org/samples/latest/charts/polar-area.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Feb 2019 22:36:16 GMT -->
+</html>
