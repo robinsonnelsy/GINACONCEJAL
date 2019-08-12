@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple Markers gina</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #idbtatras{
+
+        position: absolute;
+        top: 3%;
+        left: 90%;
+        width: 50px;
+        height: 25px;
+        background-color: black;
+        color: rgb(255, 255, 255);
+        font-size: 13px;
+        z-index: 3;
+      }
+
+
+#idmenulateral{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 60%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+z-index: 12;
+}
+
+
+#idbcerrarmenu{
+  position: absolute;
+  top: 2%;
+  left: 95%;
+  width: 33px;
+ height: 33px;
+ 
+  background-color: rgb(0, 0, 0);
+  font-size: 18px;
+z-index: 12;
+color: rgb(255, 255, 255)
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+.cltd{
+  text-align: left;
+  padding: 0px;
+  width:12.500000000000000%;
+  height: 30px;
+  text-align: center;
+  font-size: 10px;
+  border: 1px dashed rgba(28,110,164,0.67);
+}
+
+
+
+
+
+
+
+    </style>
+</style><script src="jquery-3.3.1.min.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDhOtf_ssOp3KEOiu3nByOWcqJxXZEzVaA",
+    authDomain: "concejalaginna.firebaseapp.com",
+    databaseURL: "https://concejalaginna.firebaseio.com",
+    projectId: "concejalaginna",
+    storageBucket: "concejalaginna.appspot.com",
+    messagingSenderId: "167282227815",
+    appId: "1:167282227815:web:6efa3b7917aa63bd"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+  </head>
+  <body>
+    
+    <div id="idmenulateral">
+        <button id="idbcerrarmenu" onclick="fidbcerrarmenu();">X</button>
+
+
+
+
+        <h3 id="idh3"></h3>
+
+        <input onchange="myFunction()" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+        
+        <table id="myTable">
+            <tr class="header">
+                <th style="width:12.500000000000000%;">Nombre</th>
+                <th style="width:12.500000000000000%;">Cedula</th>
+                <th style="width:12.500000000000000%;">Telefono</th>
+                <th style="width:12.500000000000000%;">Puesto</th>
+                <th style="width:12.500000000000000%;">Direccion</th>
+                <th style="width:12.500000000000000%;">Mesa</th>
+                <th style="width:12.500000000000000%;">Lider</th>
+                <th style="width:12.500000000000000%;">Telefono Lider</th>
+          
+          
+            </tr>
+        </table>
+        
+        <script>
+        function myFunction() {
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }       
+          }
+        }
+        </script>
+        
+
+
+
+
+    </div>
+    
+    
+    
+    <button id="idbtatras" onclick="fidbtatras();">Atras</button>
+    <div id="map"></div>
+    <script>
+
+var todomksdir={ant:0,des:0,ahora:0};
+
+var todovotantest={ant:0,des:0,ahora:0};
+var   arraytvotordenode=[];
+var arraytodomarksdirordenode=[];
+  /*firebase.database().ref("votantes").orderByChild("puesto").on("child_added", function(snapshot) {
+  console.log(snapshot.val());
+  });*/
+var idxllamtodotodo=0;
+var vllegueunsaves=0;
+var arraysupremo=[];
+var arraycontandovotantesplaza=[];
+var vcontandovotantesplaza=0;
+/*
+var varrayvotante={cedula:arraytodoordenode[i].cedula,departamento:arraytodoordenode[i].departamento,
+    direccion:arraytodoordenode[i].direccion,
+email:arraytodoordenode[i].email,
+facebook:arraytodoordenode[i].facebook,
+fecha:arraytodoordenode[i].fecha,
+idreferido:arraytodoordenode[i].idreferido,
+mesa:arraytodoordenode[i].mesa,
+movil:arraytodoordenode[i].movil,
+municipio:arraytodoordenode[i].municipio ,
+notareferido:arraytodoordenode[i].notareferido,
+nombres:arraytodoordenode[i].nombre ,
+notauser:arraytodoordenode[i].notauser,
+referido:arraytodoordenode[i].referido,
+puesto:arraytodoordenode[i].puesto
+ 
+  
+  }*/
+ var  arraydireccion=[];
+var vsupremo={array:1,direccion:1,idx:0};
+
+inictraemarksdirecci();
+
+function inictraemarksdirecci(){
+  traetodoormarkdiredenadopor("direccion");
+traetodoorvotadenadopor("direccion");
+floop();
+}
+
+
+
+
+function floop(){
+
+  
+setInterval(function(){ 
+
+if(arraytodomarksdirordenode.length==todomksdir.des){
+  setTimeout(function(){
+    todomksdir.des=0;
+    llenonodomarksdirec();
+   // elforordenatodopornodo();
+ //   creatd();
+  },2000)
+  }
+
+  if(arraytvotordenode.length==todovotantest.des){
+  setTimeout(function(){
+    todovotantest.des=0;
+    llenonodovotante();
+   // elforordenatodopornodo();
+ //   creatd();
+  },2000)
+  }
+
+
+
+
+
+
+
+
+ }, 3000);
+
+}
+
+
+
+
+
+function traetodoormarkdiredenadopor(st1){
+  firebase.database().ref("plazaslatlng").orderByChild(String(st1)).on("child_added", function(snapshot) {
+ // console.log(snapshot.val());
+  //todovotantest=snapshot.val();
+  arraytodomarksdirordenode.push(snapshot.val());
+//  console.log("long  "+ todovotantest.des);
+ // elforordenatodopornodo();
+// creatd();
+todomksdir.ant=todomksdir.ahora;
+todomksdir.ahora=todomksdir.ahora+1;
+todomksdir.des=todomksdir.ahora;
+
+//console.log(snapshot.val().length);
+
+
+
+
+  });
+
+
+}
+
+
+
+function traetodoorvotadenadopor(st1){
+  firebase.database().ref("votantes").orderByChild(String(st1)).on("child_added", function(snapshot) {
+ // console.log(snapshot.val());
+  //todovotantest=snapshot.val();
+  arraytvotordenode.push(snapshot.val());
+//  console.log("long  "+ todovotantest.des);
+ // elforordenatodopornodo();
+// creatd();
+todovotantest.ant=todovotantest.ahora;
+todovotantest.ahora=todovotantest.ahora+1;
+todovotantest.des=todovotantest.ahora;
+
+console.log(snapshot.val().length);
+
+
+
+
+  });
+
+
+}
+
+
+
+
+function llenonodomarksdirec(){
+  /*
+   console.log(arraytodomarksdirordenode.length);
+  for(var i in arraytodomarksdirordenode){
+
+    
+    console.log(arraytodomarksdirordenode[i].direccion);
+
+
+  }*/
+   
+
+}
+
+
+
+function llenonodovotante(){
+  /*
+  console.log(arraytvotordenode.length);
+ for(var ii in arraytvotordenode){
+
+   
+   console.log(arraytvotordenode[ii].direccion);
+
+
+ }*/
+ comparandodirecciones();
+
+}
+
+
+var ce=0;
+var vvotante;
+var idvotante=0;
+
+var io=0;
+function comparandodirecciones(){
+
+
+  console.log(arraytodomarksdirordenode.length);
+  console.log(arraytodomarksdirordenode);
+  for(var i in arraytodomarksdirordenode){
+
+    io=0;
+
+for(var ii in arraytvotordenode){
+
+   
+//console.log(arraytvotordenode[ii].direccion);
+if(arraytodomarksdirordenode[i].direccion==arraytvotordenode[ii].direccion){
+  console.log("son iguales  "+arraytodomarksdirordenode[i].direccion+" mk   vt "+arraytvotordenode[ii].direccion);
+
+
+vvotante={cedula:arraytvotordenode[ii].cedula,departamento:arraytvotordenode[ii].departamento,
+  direccion:arraytvotordenode[ii].direccion,
+email:arraytvotordenode[ii].email,
+facebook:arraytvotordenode[ii].facebook,
+fecha:arraytvotordenode[ii].fecha,
+idreferido:arraytvotordenode[ii].idreferido,
+mesa:arraytvotordenode[ii].mesa,
+movil:arraytvotordenode[ii].movil,
+municipio:arraytvotordenode[ii].municipio ,
+notareferido:arraytvotordenode[ii].notareferido,
+nombres:arraytvotordenode[ii].nombre ,
+notauser:arraytvotordenode[ii].notauser,
+referido:arraytvotordenode[ii].referido,
+puesto:arraytvotordenode[ii].puesto
+ 
+  
+  };
+
+  arraydireccion.push({idx:io,arrvotante:vvotante,direccion:arraytvotordenode[ii].direccion});
+  io=io+1;
+ 
+}
+
+
+
+
+}
+
+
+
+if(io>0){
+ // arraycontandovotantesplaza.push({idx:io-1,cantidadvotan:io,direccion:arraytvotordenode[ii].direccion,puesto:arraytvotordenode[ii].puesto});
+ arraysupremo.push({arrarydir:arraydireccion,direccion:arraydireccion[arraydireccion.length-1].direccion,
+lat:arraytodomarksdirordenode[i].lat,lng:arraytodomarksdirordenode[i].lng,cantidad:io,puesto:arraytvotordenode[ii].puesto});
+vi=io;
+if(vi>0){////console.log("vi     "+vi+"   "+io);
+}
+
+}
+else{
+  io=0;
+}
+
+
+
+
+
+
+
+
+
+
+
+ce=ce+1;
+    
+//console.log(arraydireccion);
+////console.log("----------");
+
+}
+//console.log( arraydireccion.length);
+////console.log(   arraysupremo[1].direccion);
+siincimap=true;initMap();
+}
+
+var vi=0;
+
+
+function elforordenatodopornodo(){
+
+for(var i in arraytodoordenode){
+    
+
+  arraypuestooder.push({cedula:arraytodoordenode[i].cedula,departamento:arraytodoordenode[i].departamento,
+    direccion:arraytodoordenode[i].direccion,
+email:arraytodoordenode[i].email,
+facebook:arraytodoordenode[i].facebook,
+fecha:arraytodoordenode[i].fecha,
+idreferido:arraytodoordenode[i].idreferido,
+mesa:arraytodoordenode[i].mesa,
+movil:arraytodoordenode[i].movil,
+municipio:arraytodoordenode[i].municipio ,
+notareferido:arraytodoordenode[i].notareferido,
+nombres:arraytodoordenode[i].nombre ,
+notauser:arraytodoordenode[i].notauser,
+referido:arraytodoordenode[i].referido,
+puesto:arraytodoordenode[i].puesto
+ 
+  
+  });
+
+    
+
+  }
+}
+
+
+
+
+
+
+
+
+var idx=0;
+
+var stestructuratd="";
+var vllegueunsaves=0;
+
+function creatd(thi){
+
+if(vllegueunsaves>0){
+window.location.reload();
+//$("#myTable").remove();
+//vllegueunsaves=0;
+//alert(vllegueunsaves);//
+}
+vllegueunsaves=vllegueunsaves+1;
+
+
+stestructuratd="";
+
+//console.log(thi.arraycondire[0].arrvotante.direccion);
+for(var i in thi.arraycondire){
+
+
+if(thi.arraycondire[i].arrvotante.direccion==thi.direccion){
+
+
+  stestructuratd="<tr ><td onclick="+'yocelda(thi);'+"id="+String(idx)+" class='cltd'>Nombre:<br>"+ String(idx)+" ->"+String(thi.arraycondire[i].arrvotante.nombres)+"</td>"+
+"<td class='cltd'>Cedula:<br>"+String(thi.arraycondire[i].arrvotante.cedula)+"</td>"+
+" <td class='cltd'>Telefono:<br>"+String(thi.arraycondire[i].arrvotante.movil)+"</td>"+
+"  <td class='cltd'>Puesto:<br>"+String(thi.arraycondire[i].arrvotante.puesto)+"</td>"+
+ "<td class='cltd'>Direccion:<br>"+String(thi.arraycondire[i].arrvotante.direccion)+"</td>"+
+" <td class='cltd'>Mesa:<br>"+String(thi.arraycondire[i].arrvotante.mesa)+"</td>"+
+" <td class='cltd'>Lider:<br>"+String(thi.arraycondire[i].arrvotante.referido)+"</td>"+
+" <td class='cltd'>"+String("Telefono Lider")+"<br>"+String(thi.arraycondire[i].arrvotante.movil)+"</td></tr>";
+
+
+
+
+idx=idx+1;
+$("#myTable").append(stestructuratd);
+
+
+
+}
+
+
+
+
+}
+/*
+for(var i  in thi.arraycondire){
+
+  stestructuratd="<tr ><td onclick="+'yocelda(thi);'+"id="+String(idx)+" class='cltd'>Nombre:<br>"+String(thi.arraycondire.nombres)+" : "+String(idx)+ +"</td>"+
+"<td class='cltd'>Cedula:<br>"+String(thi.arraycondire.cedula)+"</td>"+
+" <td class='cltd'>Telefono:<br>"+String(thi.arraycondire.movil)+"</td>"+
+"  <td class='cltd'>Puesto:<br>"+String(thi.arraycondire.puesto)+"</td>"+
+ "<td class='cltd'>Direccion:<br>"+String(thi.arraycondire.direccion)+"</td>"+
+" <td class='cltd'>Mesa:<br>"+String(thi.arraycondire.mesa)+"</td>"+
+" <td class='cltd'>Lider:<br>"+String(thi.arraycondire.referido)+"</td>"+
+" <td class='cltd'>"+String("Telefono Lider")+"<br>"+String(thi.arraycondire.movil)+"</td></tr>";
+
+
+
+
+idx=idx+1;
+$("#myTable").append(stestructuratd);
+
+
+
+}
+
+
+*/
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//2.921543, -75.308620
+    var siincimap=false;
+    var arraymarks=[];
+    var map;//4.629588, -74.355468
+    var myLatLng= {lat:4.629588, lng: -74.355468};
+    function  fidbtatras(){
+  window.location.href="index2.html";
+
+}//4.568695, -74.393633
+      function initMap() {
+
+        if(siincimap){//4.648967, -74.103695  4.592217, -74.094787
+     myLatLng = {lat:4.592217, lng:-74.094787};
+
+      map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: myLatLng
+        });
+
+        crearmarcas();
+        siincimap=false;
+        }
+
+      }
+
+var ab=0;
+      function crearmarcas(){
+
+        for(var i in  arraysupremo){ab=ab+1;
+          console.log(i+"   " + arraysupremo[i].lat+ arraysupremo[i].lng);
+var markx=new google.maps.Marker({
+
+          position: {lat:parseFloat(arraysupremo[i].lat), lng:parseFloat(arraysupremo[i].lng)},
+          map: map,
+          puesto:arraysupremo[i].puesto,
+          arraycondire:arraysupremo[i].arrarydir,
+          cantidad:String( arraysupremo[i].cantidad),
+       direccion:String( arraysupremo[i].direccion)   ,
+          title:  String( arraysupremo[i].direccion)+" No Votantes: "+String( arraysupremo[i].cantidad)
+         
+        });
+        arraymarks.push({direecion:1,marker:markx});
+
+
+        arraymarks[arraymarks.length-1].marker.addListener('click', function(e) {
+        //  map.setZoom(8);
+         // map.setCenter(marker.getPosition());
+       //  alert(this.title);
+         muestrmenu(this);
+     
+         
+   //      texth3("Puesto "+this.puesto+" Numero de votantes "+this.cantidad+""+"  en la direccion " +this.direccion+" ");
+  // texth3(this.title);
+         creatd(this);
+        });
+
+} console.log("arraymarks  c  "+  arraymarks.length);
+      }
+var vw= window.innerWidth;
+var vh= window.innerHeight;
+document.getElementById("idmenulateral").style.display="none";
+function muestrmenu(thi){   texth3(thi.title);
+  document.getElementById("idmenulateral").style.display="block"
+  document.getElementById("idmenulateral").style.width=String(vw*0.70)+"px";
+}
+
+function fidbcerrarmenu(){
+
+ // document.getElementById("idmenulateral").style.width=String(vw*0.0)+"px";
+ document.getElementById("idmenulateral").style.display="none";
+window.location.reload();
+}
+function texth3(st){
+  document.getElementById("idh3").innerHTML=st;
+}
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq-tvrDM2uRg_N6gMymcpzISP126Hh-y0&callback=initMap">
+     </script>
+  </body>
+</html>

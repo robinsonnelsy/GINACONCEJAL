@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V6</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+
+
+
+
+
+
+
+<style>
+
+#idtodo{
+
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(255, 255, 255);
+}
+
+
+#idnuevouserbase{
+
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width:100%;
+	height:100%;
+	background-color:  #cccccc;;
+	opacity: 0.8;
+	z-index: 30;
+}
+
+#idnuevouserbasepanel{
+
+	position: absolute;
+	top: 20%;
+	left: 30%;
+	width:40%;
+	height:60%;
+	background-color: #ffffff;
+	opacity: 1;
+	z-index: 3;
+	border: 5px solid  #cccccc;
+border-radius: 40px 40px 40px 40px;
+
+-webkit-box-shadow: -1px 4px 15px -3px #000000; 
+box-shadow: -1px 4px 15px -3px #000000;
+-webkit-box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 0px 0px 0px 10px #FF0000, -1px 4px 15px -3px rgba(0,0,0,0); 
+box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 0px 0px 0px 10px #FF0000, -1px 4px 15px -3px rgba(0,0,0,0);
+
+overflow-y: scroll;
+
+}
+
+
+
+
+
+
+
+
+.clinputuserbasenuevo {
+	position: relative;
+	height: 25px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 13px;
+
+
+  border: 5px solid  #cccccc;;
+
+
+background-color: #ffffff;
+
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #2196f3;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #FF0000;
+}
+
+
+
+
+.containeruserbasenuevo {
+  padding: 20px;
+}
+
+
+
+
+
+
+
+#idrh2nueuser{
+
+	position: absolute;
+	top: 10%;
+	width: 100%;
+	font-size: 20px;
+	height: 15px;
+	margin: auto;
+	padding: 0px;
+	text-align: center;
+	color: #FF0000;
+}
+
+
+
+
+
+#idbtcerrauserbasenuevo{
+
+	position: absolute;
+	top: 18%;
+	left: 60%;
+	width: 80px;
+	
+	background-color: #2196f3;
+	z-index: 8;
+	margin: auto;
+	padding: 2px;
+	text-align: center;
+	font-size: 13px;
+	opacity: 1;
+}
+
+
+
+
+
+</style>
+
+</head>
+<body onload="inicia();"> 
+	<div id="idtodo">
+
+
+		<div id="idnuevouserbase">
+				<h2 id="idrh2nueuser">Registro user</h2>
+				
+				<button id="idbtcerrauserbasenuevo" onclick="fidbtcerrauserbasenuevo();">CERRAR</button>
+				<div id="idnuevouserbasepanel">
+
+
+						
+						<div class="containeruserbasenuevo"><br>
+								<br>
+								<label  class="clLBuserbasenuevo" for="uname"><b>Nombre Completo</b></label>
+								<input  id="inputuserbasenuevonombre" class="clinputuserbasenuevo" type="text" placeholder="Nombre Completo" name="uname" required>
+						  
+								<label  class="clLBuserbasenuevo" for="uname"><b>Cedula</b></label>
+								<input  id="inputuserbasenuevocedula" class="clinputuserbasenuevo" type="text" placeholder="Cedula" name="uname" required>
+						
+								<label  class="clLBuserbasenuevo" for="uname"><b>Email</b></label>
+								<input  id="inputuserbasenuevoemail" class="clinputuserbasenuevo" type="text" placeholder="Email" name="uname" required>
+								<label  class="clLBuserbasenuevo" for="uname"><b>Mobil</b></label>
+								<input  id="inputuserbasenuevomobil" class="clinputuserbasenuevo" type="text" placeholder="Mobil" name="uname" required>
+								<label  class="clLBuserbasenuevo" for="uname"><b>user</b></label>
+								<input  id="inputuserbasenuevouser" class="clinputuserbasenuevo" type="text" placeholder="user" name="uname" required>
+								<label  class="clLBuserbasenuevo" for="uname"><b>pass</b></label>
+								<input  id="inputuserbasenuevopass" class="clinputuserbasenuevo" type="text" placeholder="pass" name="uname" required>
+						  
+								<button onclick="oknuevouserbase();">Login</button>
+							
+					    </div>
+
+
+
+					
+				</div>
+
+		</div>
+
+		<div id="idloginpanelmenubase" class="limiter">
+			<div class="container-login100">
+				<div class="wrap-login100 p-t-85 p-b-20">
+					<div class="login100-form validate-form">
+						<span class="login100-form-title p-b-70">
+				    GINA HERRERA
+						</span>
+						<span class="login100-form-avatar">
+							<img src="ini1.jpg" alt="AVATAR">
+						</span>
+	
+						<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+							<input id="idinpnombre" class="input100" type="text" name="username">
+							<span class="focus-input100" data-placeholder="Username"></span>
+						</div>
+	
+						<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+							<input id="inppass" class="input100" type="password" name="pass">
+							<span class="focus-input100" data-placeholder="Password"></span>
+						</div>
+	
+						<div class="container-login100-form-btn">
+							<button onclick="fbtlogin()" class="login100-form-btn2">
+								Login
+							</button>
+						</div>
+	
+
+						<ul class="login-more p-t-190">
+								<li class="m-b-8">
+									<span class="txt1">
+										Olvidaste  pass o user enviar
+									</span>
+		
+									<a href="#" class="txt2">
+									3229375628 
+									</a>
+								</li>
+		
+								<li>
+									<span class="txt1">
+										Don’t have an account?
+									</span>
+		
+									<a onclick="fcrearcuentuserbt();" href="#" class="txt2">
+										Crear cuenta user 
+									</a>
+								</li>
+							</ul>
+
+
+
+
+
+
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+	
+
+</body><script src="loginmio.js"></script>
+
+
+<script>var personausernuevbase;
+
+var enontrouserregistrado=false;
+var repitepassuser=false;
+var repitepassuseuno=false;
+		var vinputuserbasenuevonombre="";	
+		var vinputuserbasenuevocedula="";
+		var vinputuserbasenuevoemail="";
+		var vinputuserbasenuevomobil="";	
+		var vinputuserbasenuevouser="";
+		var vinputuserbasenuevopass="";
+
+		var bolvinputuserbasenuevonombre=false;	
+		var bolvinputuserbasenuevocedula=false;
+		var bolvinputuserbasenuevoemail=false;
+		var bolvinputuserbasenuevomobil=false;	
+		var bolvinputuserbasenuevouser=false;
+		var bolvinputuserbasenuevopass=false;
+		var bolvinputuserbasersitenemoseseuser=false;
+
+			 bolvinputuserbasenuevonombre=false;	
+		 bolvinputuserbasenuevocedula=false;
+		 bolvinputuserbasenuevoemail=false;
+		 bolvinputuserbasenuevomobil=false;	
+		 bolvinputuserbasenuevouser=false;
+		 bolvinputuserbasenuevopass=false;
+		
+
+var escribenuevouserbase="";
+repitepassuser=false;
+
+		function inioknuevouserbases(){
+			vinputuserbasenuevonombre="";	
+			vinputuserbasenuevocedula="";
+			vinputuserbasenuevoemail="";
+			vinputuserbasenuevomobil="";	
+			vinputuserbasenuevouser="";
+			vinputuserbasenuevopass="";
+			repitepassuseuno=false;
+			bolvinputuserbasenuevonombre=false;	
+		 bolvinputuserbasenuevocedula=false;
+		 bolvinputuserbasenuevoemail=false;
+		 bolvinputuserbasenuevomobil=false;	
+		 bolvinputuserbasenuevouser=false;
+		 bolvinputuserbasenuevopass=false;
+		 bolvinputuserbasersitenemoseseuser=false;
+		 bolvinputuserbasersitenemoseseuser=false;
+		 enontrouserregistrado=false;
+		 escribenuevouserbase="";
+		 repitepassuser=false;
+		}
+		function oknuevouserbase(){
+
+
+
+			inioknuevouserbases();
+
+		//	console.log("repitepassuser    "+repitepassuser);
+			vinputuserbasenuevonombre=document.getElementById("inputuserbasenuevonombre").value;	
+	 vinputuserbasenuevocedula=document.getElementById("inputuserbasenuevocedula").value;
+	 vinputuserbasenuevoemail=document.getElementById("inputuserbasenuevoemail").value;
+	 vinputuserbasenuevomobil=document.getElementById("inputuserbasenuevomobil").value;	
+	 vinputuserbasenuevouser=document.getElementById("inputuserbasenuevouser").value;
+	 vinputuserbasenuevopass=document.getElementById("inputuserbasenuevopass").value;
+//	 console.log(todolodeusernfire);
+	// console.log("repitepassuser    "+repitepassuser);
+for(var i in todolodeusernfire){
+	console.log("enontrouserregistrado  " +enontrouserregistrado);
+
+	if(!enontrouserregistrado){
+//"aca1");
+//console.log("repitepassuser    "+repitepassuser);
+		if( todolodeusernfire[i].cedula==vinputuserbasenuevocedula){
+	//		console.log("enontrouserregistrado  " +enontrouserregistrado+" "+i);
+			bolvinputuserbasersitenemoseseuser=true;
+		enontrouserregistrado=true;	console.log("enontrouserregistrado  " +enontrouserregistrado+" "+i
+		+" "+todolodeusernfire[i].cedula+"   "+vinputuserbasenuevocedula);
+		escribenuevouserbase="no se  registro tenemos ese usuario";
+	//	console.log("aca2");		escribuserbasenuevo(	escribenuevouserbase);
+	}
+	else{bolvinputuserbasersitenemoseseuser=false;
+	
+	//	console.log("aca3-1b");
+		for(var i in todolodeusernfire){console.log("aca3-1");
+if(!repitepassuseuno){
+//	console.log("aca3");console.log("=   "+todolodeusernfire[i].pass+"    "+vinputuserbasenuevopass);
+if(todolodeusernfire[i].pass==vinputuserbasenuevopass){
+	
+//	console.log("en este "+ i);
+//	console.log("en este "+ i);
+	repitepassuseuno=true;
+///	console.log("repitepassuser    "+repitepassuser);
+	repitepassuser=true;
+	
+//	console.log("repitepassuser    "+repitepassuser);
+
+}
+
+
+
+}
+
+
+
+
+		}
+
+
+
+	
+	
+	}
+
+
+
+
+
+
+	}
+
+}
+
+if(repitepassuseuno){	escribenuevouserbase=" "+escribenuevouserbase+" "+ "pass repetido ";}
+else{	escribenuevouserbase=" "+escribenuevouserbase;}
+
+
+
+
+	
+personausernuevbase={
+
+nombre:vinputuserbasenuevonombre,
+email:vinputuserbasenuevoemail,
+user:vinputuserbasenuevouser,
+pass:vinputuserbasenuevopass,
+cedula:vinputuserbasenuevocedula,
+mobil:vinputuserbasenuevomobil,
+idfire:"sinid"
+
+};
+
+if(vinputuserbasenuevonombre==""){bolvinputuserbasenuevonombre=false; ;escribenuevouserbase= " "+escribenuevouserbase+" "+ "falta el nombre ";}
+else{bolvinputuserbasenuevonombre=true;}
+if(vinputuserbasenuevocedula==""){bolvinputuserbasenuevocedula=false; ;escribenuevouserbase= " "+escribenuevouserbase+" "+ "falta la cedula ";}
+else{bolvinputuserbasenuevocedula=true;}
+if(vinputuserbasenuevoemail==""){bolvinputuserbasenuevoemail=false; ;escribenuevouserbase= " "+escribenuevouserbase+" "+ "falta el email ";}
+else{bolvinputuserbasenuevoemail=true;}
+
+if(vinputuserbasenuevomobil==""){bolvinputuserbasenuevomobil=false; ;escribenuevouserbase= " "+escribenuevouserbase+" "+ "falta el mobil ";}
+else{bolvinputuserbasenuevomobil=true;}
+if(vinputuserbasenuevouser==""){bolvinputuserbasenuevouser=false; ;escribenuevouserbase= " "+escribenuevouserbase+" "+ "falta el user ";}
+else{bolvinputuserbasenuevouser=true;}
+if(vinputuserbasenuevouser==""){bolvinputuserbasenuevopass=false; ;escribenuevouserbase= " "+escribenuevouserbase+" "+ "falta el pass ";}
+else{bolvinputuserbasenuevopass=true;}
+
+if(!repitepassuser&&!bolvinputuserbasersitenemoseseuser){
+
+
+	if(bolvinputuserbasenuevonombre&&bolvinputuserbasenuevocedula&&
+bolvinputuserbasenuevouser&&bolvinputuserbasenuevopass){
+escribuserbasenuevo(" creado  nuevo usuario ");
+escribenuevouserbase="creado  nuevo usuario ";
+//document.getElementById("idrh2nueuser").style.color = "#idrh2nueuser";
+firebase.database().ref().child("user").push(personausernuevbase);
+}
+else{
+
+escribuserbasenuevo(" no  se guardo "+escribenuevouserbase);
+}
+
+}
+
+//console.log(!repitepassuser+"    "+!bolvinputuserbasersitenemoseseuser+"    "+bolvinputuserbasenuevonombre+"    "+bolvinputuserbasenuevocedula+"    "+bolvinputuserbasenuevouser+"    "+bolvinputuserbasenuevopass);console.log(personausernuevbase);
+	
+	
+escribuserbasenuevo(escribenuevouserbase);
+
+}
+
+function escribuserbasenuevo(st){
+
+document.getElementById("idrh2nueuser").innerHTML=st;
+}
+	
+
+function fidbtcerrauserbasenuevo(){
+
+	document.getElementById("idloginpanelmenubase").style.display="block";
+	document.getElementById("idnuevouserbase").style.display="none";
+}
+
+function fcrearcuentuserbt(){
+	document.getElementById("idloginpanelmenubase").style.display="none";
+	document.getElementById("idnuevouserbase").style.display="block";
+}
+
+
+
+
+document.getElementById("idnuevouserbase").style.display="none";
+		</script>
+
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+
+.cltd{
+  text-align: left;
+  padding: 0px;
+  width:12.500000000000000%;
+  height: 30px;
+  text-align: center;
+  font-size: 10px;
+  border: 1px dashed rgba(28,110,164,0.67);
+}
+
+#idmenulateral{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 40%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.9;
+}
+#idbtmenulateral{
+  position: absolute;
+  top: 0%;
+  left: 90%;
+  width:33px;
+  height: 33px;
+  background-color: rgb(39, 96, 160);
+ 
+
+}
+
+
+
+#idh2{
+
+font-family: "Playfair Display SC", serif;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 35px;
+  color: rgb(0, 180, 230);
+  background-color: rgb(84, 84, 84);
+  text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display+SC');
+
+
+
+
+
+
+
+
+
+#idmenulateral{
+
+position: absolute;
+top: 0%;
+left: 0%;
+width: 40%;
+height: 100%;
+background-color: black;
+opacity: 0.9;
+}
+#idbtmenulateral{
+position: absolute;
+top: 0%;
+left: 90%;
+width:90px;
+height: 33px;
+background-color: rgb(0, 0, 0);
+
+color: #ffffff;
+}
+
+
+
+.myButtonmenulat {
+-moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+box-shadow:inset 0px -3px 7px 0px #29bbff;
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+background-color:#2dabf9;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+border-radius:3px;
+border:1px solid #0b0e07;
+display:inline-block;
+cursor:pointer;
+color:#ffffff;
+font-family:Arial;
+font-size:15px;
+padding:9px 23px;
+text-decoration:none;
+text-shadow:0px 1px 0px #263666;
+}
+.myButtonmenulat:hover {
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+background:-o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+background:-ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+background-color:#0688fa;
+}
+.myButtonmenulat:active {
+position:relative;
+top:1px;
+}
+
+
+
+
+
+
+</style><script src="jquery-3.3.1.min.js"></script>
+</head>
+
+
+
+
+
+<body><button id="idbtmenulateral"  onclick="fmenulate();">menu lateral</button>
+  <button id="idbtatras"  onclick="fidbtatras();">atras</button>
+  
+  <div id="idmenulateral"></div>
+
+<h2 id="idh2">Ordenado Por Puesto</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Por Puesto" title="Type in a name">
+
+<table id="myTable">
+  <tr class="header">
+      <th style="width:12.500000000000000%;">Nombre</th>
+      <th style="width:12.500000000000000%;">Cedula</th>
+      <th style="width:12.500000000000000%;">Telefono</th>
+      <th style="width:12.500000000000000%;">Puesto</th>
+      <th style="width:12.500000000000000%;">Direccion</th>
+      <th style="width:12.500000000000000%;">Mesa</th>
+      <th style="width:12.500000000000000%;">Lider</th>
+      <th style="width:12.500000000000000%;">Telefono Lider</th>
+
+
+  </tr>
+  <tr >  
+    <td class="cltd">Nombre:<br> </td>
+    <td class="cltd">Cedula:<br></td>
+    <td class="cltd">Telefono:<br></td>
+    <td class="cltd">Puesto:<br></td>
+    <td class="cltd">Direccion:<br></td>
+    <td class="cltd">Mesa:<br></td>
+    <td class="cltd">Lider:<br></td>
+    <td class="cltd">Telefono Lider<br></td>
+
+
+  </tr>
+
+
+
+
+  
+</table>
+<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDhOtf_ssOp3KEOiu3nByOWcqJxXZEzVaA",
+    authDomain: "concejalaginna.firebaseapp.com",
+    databaseURL: "https://concejalaginna.firebaseio.com",
+    projectId: "concejalaginna",
+    storageBucket: "concejalaginna.appspot.com",
+    messagingSenderId: "167282227815",
+    appId: "1:167282227815:web:6efa3b7917aa63bd"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+
+
+var todovotantest={ant:0,des:0,ahora:0};
+var  arraypuestooder=[];
+var arraytodoordenode=[];
+  /*firebase.database().ref("votantes").orderByChild("puesto").on("child_added", function(snapshot) {
+  console.log(snapshot.val());
+  });*/
+var idxllamtodotodo=0;
+var vllegueunsaves=0;
+function traetodoordenadopor(st1){
+  firebase.database().ref("votantes").orderByChild(String(st1)).on("child_added", function(snapshot) {
+ // console.log(snapshot.val());
+  //todovotantest=snapshot.val();
+  arraytodoordenode.push(snapshot.val());
+  console.log("long  "+ todovotantest.des);
+ // elforordenatodopornodo();
+// creatd();
+todovotantest.ant=todovotantest.ahora;
+todovotantest.ahora=todovotantest.ahora+1;
+todovotantest.des=todovotantest.ahora;
+
+
+
+
+
+
+  });
+
+
+}
+setInterval(function(){ 
+
+if(arraytodoordenode.length==todovotantest.des){
+  setTimeout(function(){
+    todovotantest.des=0;
+    elforordenatodopornodo();
+    creatd();
+  },2000)
+  }
+
+ }, 3000);
+
+function elforordenatodopornodo(){
+
+for(var i in arraytodoordenode){
+    
+
+  arraypuestooder.push({cedula:arraytodoordenode[i].cedula,departamento:arraytodoordenode[i].departamento,
+    direccion:arraytodoordenode[i].direccion,
+email:arraytodoordenode[i].email,
+facebook:arraytodoordenode[i].facebook,
+fecha:arraytodoordenode[i].fecha,
+idreferido:arraytodoordenode[i].idreferido,
+mesa:arraytodoordenode[i].mesa,
+movil:arraytodoordenode[i].movil,
+municipio:arraytodoordenode[i].municipio ,
+notareferido:arraytodoordenode[i].notareferido,
+nombres:arraytodoordenode[i].nombre ,
+notauser:arraytodoordenode[i].notauser,
+referido:arraytodoordenode[i].referido,
+puesto:arraytodoordenode[i].puesto
+ 
+  
+  });
+
+    
+
+  }
+}
+
+
+
+
+
+
+
+var todovotantes;
+var vordenarpuesto="eeee";
+var vertraetodo=0;
+
+
+
+
+
+
+
+
+
+
+
+function elforfirepuesto(){
+
+  for(var i in todovotantes){
+      if(todovotantes[i].puesto==vordenarpuesto){
+  
+
+        arraypuestooder.push({cedula:todovotantes[i].cedula,departamento:todovotantes[i].departamento,
+          direccion:todovotantes[i].direccion,
+    email:todovotantes[i].email,
+    facebook:todovotantes[i].facebook,
+    fecha:todovotantes[i].fecha,
+    idreferido:todovotantes[i].idreferido,
+    mesa:todovotantes[i].mesa,
+    movil:todovotantes[i].movil,
+    municipio:todovotantes[i].municipio ,
+    notareferido:todovotantes[i].notareferido,
+    nombres:todovotantes[i].nombre ,
+    notauser:todovotantes[i].notauser,
+    referido:todovotantes[i].referido,
+    puesto:todovotantes[i].puesto
+   
+    
+    });
+ 
+      }
+
+    }
+}
+var sttraetodoordevotantepor="";
+function traerdef(stnode){ 
+  firebase.database().ref().child(String(stnode)).once("value", function(snapshot) { 
+    //console.log(snapshot.key + " was " + snapshot.val()+ " meters tall");
+todovotantes=snapshot.val();
+creatd();
+
+  
+  });
+
+}
+
+vertraetodo=0;
+iniciauno();
+function iniciauno(){
+  if(vertraetodo==1){vordenarpuesto="";traerdef("votantes");  elforfirepuesto();}
+  if(vertraetodo==0){ sttraetodoordevotantepor="puesto";traetodoordenadopor(sttraetodoordevotantepor);}
+  
+   
+}
+
+
+
+/*
+var st={  
+  cedula:todovotantes[i].cedula,departamento:todovotantes[i].departamento,direccion:todovotantes[i].direccion,email:todovotantes[i].email,facebook:todovotantes[i].facebook,
+​fechainsc:todovotantes[i].fechainsc,idreferido:todovotantes[i].idreferido,mesa:todovotantes[i].mesa,movil:todovotantes[i].movil,municipio:todovotantes[i].municipio,
+​nombre:todovotantes[i].nombre,notareferido:todovotantes[i].notareferido,notauser:todovotantes[i].notauser,puesto:todovotantes[i].puesto,​referido:todovotantes[i].referido
+ }
+
+*/
+var idxs=0;
+
+varstestructuratd="<tr ><td id="+String(idx)+" class='cltd'>Nombre:<br>"+String("") +"</td><td class='cltd'>Cedula:<br>"+String("")+"</td>"+
+  " <td class='cltd'>Telefono:<br>"+String("")+"</td>"+
+ "  <td class='cltd'>Puesto:<br>"+String("")+"</td>"+
+   "<td class='cltd'>Direccion:<br>"+String("")+"</td>"+
+  " <td class='cltd'>Mesa:<br>"+String("")+"</td>"+
+  " <td class='cltd'>Referido:<br>"+String("")+"</td>"+
+  " <td class='cltd'>"+String("Telefono Lider")+"<br></td></tr>";
+
+
+
+
+
+
+
+
+
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var idx=0;
+
+
+function creatd(){
+
+  if(vllegueunsaves>0){
+location.reload();
+alert(vllegueunsaves);
+  }
+vllegueunsaves=vllegueunsaves+1;
+
+
+  var stestructuratd="";
+
+
+  for(var i  in arraypuestooder){
+
+    stestructuratd="<tr ><td onclick="+'yocelda(this);'+"id="+String(idx)+" class='cltd'>Nombre:<br>"+String(arraypuestooder[i].nombres)+" : "+String(idx)+ +"</td>"+
+"<td class='cltd'>Cedula:<br>"+String(arraypuestooder[i].cedula)+"</td>"+
+  " <td class='cltd'>Telefono:<br>"+String(arraypuestooder[i].movil)+"</td>"+
+ "  <td class='cltd'>Puesto:<br>"+String(arraypuestooder[i].puesto)+"</td>"+
+   "<td class='cltd'>Direccion:<br>"+String(arraypuestooder[i].direccion)+"</td>"+
+  " <td class='cltd'>Mesa:<br>"+String(arraypuestooder[i].mesa)+"</td>"+
+  " <td class='cltd'>Lider:<br>"+String(arraypuestooder[i].referido)+"</td>"+
+  " <td class='cltd'>"+String("Telefono Lider")+"<br>"+String(arraypuestooder[i].movil)+"</td></tr>";
+
+
+console.log(arraypuestooder[i].puesto);
+
+idx=idx+1;
+$("#myTable").append(stestructuratd);
+
+
+
+}/*
+
+	for(var i=0;i<4;i=i+1){
+
+//megusta:general[itera].likes
+
+
+stestructuratd="<tr ><td onclick="+'yocelda(this);'+"id="+String(idx)+" class='cltd'>Nombre:<br>"+String("""")+" : "+String(idx)+ +"</td>"+
+"<td class='cltd'>Cedula:<br>"+String(111111111111)+"</td>"+
+  " <td class='cltd'>Telefono:<br>"+String(3134567898)+"</td>"+
+ "  <td class='cltd'>Puesto:<br>"+String("casdfrewsdfgvddsdsdsdd")+"</td>"+
+   "<td class='cltd'>Direccion:<br>"+String("cal le 34 No 43 b - 12")+"</td>"+
+  " <td class='cltd'>Mesa:<br>"+String(32)+"</td>"+
+  " <td class='cltd'>Referido:<br>"+String("""")+"</td>"+
+  " <td class='cltd'>"+String("Telefono Lider")+"<br>"+String(3123456789)+"</td></tr>";
+
+//general[itera].likes
+
+idx=idx+1;
+$("#myTable").append(stestructuratd);
+
+
+
+
+
+
+
+}
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+}
+
+function yocelda(yo){
+
+  alert(yo.id);
+}
+
+var idxmenulateraloculta=1;
+document.getElementById("idmenulateral").style.width="0px";
+function fmenulate(){
+if(idxmenulateraloculta==1){document.getElementById("idmenulateral").style.width=String(window.innerWidth*0.4)+"px";}
+ else{ document.getElementById("idmenulateral").style.width="0px";}idxmenulateraloculta=1+idxmenulateraloculta;
+if(idxmenulateraloculta>1){idxmenulateraloculta=0;}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function fidbtatras(){
+
+  window.location.href="index2.html";
+}
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
